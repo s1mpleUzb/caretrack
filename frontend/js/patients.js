@@ -1,11 +1,12 @@
+const API_BASE = window.location.origin;
+
 if (!localStorage.getItem("role")) {
   window.location.href = "login.html";
 }
 const role = localStorage.getItem("role");
 
-// ===== DOCTORS DROPDOWN YUKLASH =====
 function loadDoctorsDropdown() {
-  fetch("http://localhost:3000/api/doctors")
+  fetch(`${API_BASE}/api/doctors`)
     .then((res) => res.json())
     .then((data) => {
       const select = document.getElementById("doctor_id");
@@ -16,7 +17,6 @@ function loadDoctorsDropdown() {
     });
 }
 
-// ===== MODAL =====
 document.getElementById("openAddModal").addEventListener("click", () => {
   document.getElementById("modalTitle").innerText = "Add Patient";
   document.getElementById("editId").value = "";
@@ -33,7 +33,6 @@ document.getElementById("closeModal").addEventListener("click", () => {
   document.getElementById("modal").style.display = "none";
 });
 
-// ===== SAVE (ADD or EDIT) =====
 document.getElementById("saveBtn").addEventListener("click", () => {
   const id = document.getElementById("editId").value;
   const name = document.getElementById("name").value;
@@ -44,8 +43,8 @@ document.getElementById("saveBtn").addEventListener("click", () => {
   const msg = document.getElementById("formMessage");
 
   const url = id
-    ? `http://localhost:3000/api/patients/${id}`
-    : "http://localhost:3000/api/patients";
+    ? `${API_BASE}/api/patients/${id}`
+    : `${API_BASE}/api/patients`;
   const method = id ? "PUT" : "POST";
 
   fetch(url, {
@@ -74,16 +73,14 @@ document.getElementById("saveBtn").addEventListener("click", () => {
     });
 });
 
-// Add tugmasini faqat adminga ko'rsat
 if (role !== "admin") {
   document.getElementById("openAddModal").style.display = "none";
 }
 
-// ===== LOAD PATIENTS =====
 function loadPatients(name = "") {
   const url = name
-    ? `http://localhost:3000/api/patients?name=${name}`
-    : "http://localhost:3000/api/patients";
+    ? `${API_BASE}/api/patients?name=${name}`
+    : `${API_BASE}/api/patients`;
 
   fetch(url)
     .then((res) => res.json())
@@ -103,28 +100,28 @@ function loadPatients(name = "") {
             : "";
 
         tbody.innerHTML += `
-                <tr>
-                    <td>${p.id}</td>
-                    <td>${p.name}</td>
-                    <td>${p.age}</td>
-                    <td>${p.gender}</td>
-                    <td>${p.contact}</td>
-                    <td>${p.doctor_name || "-"}</td>
-                    <td>
-                      ${role !== "receptionist" ? `<button onclick="editPatient(${p.id}, '${p.name}', ${p.age}, '${p.gender}', '${p.contact}', ${p.doctor_id || null})">Edit</button>` : ""}
-                        ${deleteBtn}
-                    </td>
-                </tr>
-            `;
+          <tr>
+            <td>${p.id}</td>
+            <td>${p.name}</td>
+            <td>${p.age}</td>
+            <td>${p.gender}</td>
+            <td>${p.contact}</td>
+            <td>${p.doctor_name || "-"}</td>
+            <td>
+              ${role !== "receptionist" ? `<button onclick="editPatient(${p.id}, '${p.name}', ${p.age}, '${p.gender}', '${p.contact}', ${p.doctor_id || null})">Edit</button>` : ""}
+              ${deleteBtn}
+            </td>
+          </tr>
+        `;
       });
     });
 }
-// ===== SEARCH =====
+
 function searchPatients() {
   const name = document.getElementById("searchInput").value;
   loadPatients(name);
 }
-// ===== EDIT =====
+
 function editPatient(id, name, age, gender, contact, doctor_id) {
   document.getElementById("modalTitle").innerText = "Edit Patient";
   document.getElementById("editId").value = id;
@@ -139,11 +136,10 @@ function editPatient(id, name, age, gender, contact, doctor_id) {
   document.getElementById("modal").style.display = "flex";
 }
 
-// ===== DELETE =====
 function deletePatient(id) {
   if (!confirm("Are you sure?")) return;
 
-  fetch(`http://localhost:3000/api/patients/${id}`, { method: "DELETE" })
+  fetch(`${API_BASE}/api/patients/${id}`, { method: "DELETE" })
     .then((res) => res.json())
     .then((data) => {
       document.getElementById("formMessage").style.color = data.success
@@ -154,11 +150,9 @@ function deletePatient(id) {
     });
 }
 
-// ------
 function logout() {
   localStorage.clear();
   window.location.href = "login.html";
 }
 
-// Sahifa ochilganda yukla
 loadPatients();

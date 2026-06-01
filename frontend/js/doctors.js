@@ -1,10 +1,11 @@
+const API_BASE = window.location.origin;
+
 if (!localStorage.getItem("role")) {
   window.location.href = "login.html";
 }
 
 const role = localStorage.getItem("role");
 
-// ===== MODAL =====
 document.getElementById("openAddModal").addEventListener("click", () => {
   document.getElementById("modalTitle").innerText = "Add Doctor";
   document.getElementById("editId").value = "";
@@ -19,7 +20,6 @@ document.getElementById("closeModal").addEventListener("click", () => {
   document.getElementById("modal").style.display = "none";
 });
 
-// ===== SAVE (ADD or EDIT) =====
 document.getElementById("saveBtn").addEventListener("click", () => {
   const id = document.getElementById("editId").value;
   const name = document.getElementById("name").value;
@@ -28,9 +28,7 @@ document.getElementById("saveBtn").addEventListener("click", () => {
   const contact = document.getElementById("contact").value;
   const msg = document.getElementById("formMessage");
 
-  const url = id
-    ? `http://localhost:3000/api/doctors/${id}`
-    : "http://localhost:3000/api/doctors";
+  const url = id ? `${API_BASE}/api/doctors/${id}` : `${API_BASE}/api/doctors`;
   const method = id ? "PUT" : "POST";
 
   fetch(url, {
@@ -53,16 +51,14 @@ document.getElementById("saveBtn").addEventListener("click", () => {
     });
 });
 
-// Add tugmasini faqat adminga ko'rsat
 if (role !== "admin") {
   document.getElementById("openAddModal").style.display = "none";
 }
 
-// ===== LOAD DOCTORS =====
 function loadDoctors(name = "") {
   const url = name
-    ? `http://localhost:3000/api/doctors?name=${name}`
-    : "http://localhost:3000/api/doctors";
+    ? `${API_BASE}/api/doctors?name=${name}`
+    : `${API_BASE}/api/doctors`;
 
   fetch(url)
     .then((res) => res.json())
@@ -82,29 +78,27 @@ function loadDoctors(name = "") {
             : "";
 
         tbody.innerHTML += `
-                <tr>
-                    <td>${doc.id}</td>
-                    <td>${doc.name}</td>
-                    <td>${doc.specialty}</td>
-                    <td>${doc.department}</td>
-                    <td>${doc.contact}</td>
-                    <td>
-                        ${role === "admin" ? `<button onclick="editDoctor(${doc.id}, '${doc.name}', '${doc.specialty}', '${doc.department}', '${doc.contact}')">Edit</button>` : ""}
-                        ${deleteBtn}
-                    </td>
-                </tr>
-            `;
+          <tr>
+            <td>${doc.id}</td>
+            <td>${doc.name}</td>
+            <td>${doc.specialty}</td>
+            <td>${doc.department}</td>
+            <td>${doc.contact}</td>
+            <td>
+              ${role === "admin" ? `<button onclick="editDoctor(${doc.id}, '${doc.name}', '${doc.specialty}', '${doc.department}', '${doc.contact}')">Edit</button>` : ""}
+              ${deleteBtn}
+            </td>
+          </tr>
+        `;
       });
     });
 }
 
-// ===== SEARCH =====
 function searchDoctors() {
   const name = document.getElementById("searchInput").value;
   loadDoctors(name);
 }
 
-// ===== EDIT =====
 function editDoctor(id, name, specialty, department, contact) {
   document.getElementById("modalTitle").innerText = "Edit Doctor";
   document.getElementById("editId").value = id;
@@ -115,11 +109,10 @@ function editDoctor(id, name, specialty, department, contact) {
   document.getElementById("modal").style.display = "flex";
 }
 
-// ===== DELETE =====
 function deleteDoctor(id) {
   if (!confirm("Are you sure?")) return;
 
-  fetch(`http://localhost:3000/api/doctors/${id}`, { method: "DELETE" })
+  fetch(`${API_BASE}/api/doctors/${id}`, { method: "DELETE" })
     .then((res) => res.json())
     .then((data) => {
       document.getElementById("formMessage").style.color = data.success
@@ -135,5 +128,4 @@ function logout() {
   window.location.href = "login.html";
 }
 
-// Sahifa ochilganda yukla
 loadDoctors();

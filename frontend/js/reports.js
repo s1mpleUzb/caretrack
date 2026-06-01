@@ -1,8 +1,10 @@
+const API_BASE = window.location.origin;
+
 if (!localStorage.getItem("role")) {
   window.location.href = "login.html";
 }
-// ===== STATS =====
-fetch("http://localhost:3000/api/reports")
+
+fetch(`${API_BASE}/api/reports`)
   .then((res) => res.json())
   .then((data) => {
     if (data.success) {
@@ -15,9 +17,8 @@ fetch("http://localhost:3000/api/reports")
     }
   });
 
-// ===== LOAD DIAGNOSIS =====
 function loadDiagnosis(severity = "") {
-  let url = "http://localhost:3000/api/diseases";
+  let url = `${API_BASE}/api/diseases`;
   if (severity) url += `?severity=${severity}`;
 
   fetch(url)
@@ -33,37 +34,34 @@ function loadDiagnosis(severity = "") {
 
       data.diseases.forEach((d) => {
         const badge = `<span style="
-                padding: 3px 10px;
-                border-radius: 12px;
-                font-size: 12px;
-                background: ${d.severity === "high" ? "#ffe0e0" : d.severity === "medium" ? "#fff3cd" : "#e0f7e9"};
-                color: ${d.severity === "high" ? "#c0392b" : d.severity === "medium" ? "#856404" : "#1a7a3c"};
-            ">${d.severity}</span>`;
+          padding: 3px 10px;
+          border-radius: 12px;
+          font-size: 12px;
+          background: ${d.severity === "high" ? "#ffe0e0" : d.severity === "medium" ? "#fff3cd" : "#e0f7e9"};
+          color: ${d.severity === "high" ? "#c0392b" : d.severity === "medium" ? "#856404" : "#1a7a3c"};
+        ">${d.severity}</span>`;
 
         tbody.innerHTML += `
-                <tr>
-                    <td>${d.id}</td>
-                    <td>${d.name}</td>
-                    <td>${badge}</td>
-                    <td>${d.patient_id || "-"}</td>
-                    <td>${d.notes || "-"}</td>
-                </tr>
-            `;
+          <tr>
+            <td>${d.id}</td>
+            <td>${d.name}</td>
+            <td>${badge}</td>
+            <td>${d.patient_id || "-"}</td>
+            <td>${d.notes || "-"}</td>
+          </tr>
+        `;
       });
     });
 }
 
-// ===== FILTER =====
 function filterDiagnosis() {
   const severity = document.getElementById("severityFilter").value;
   loadDiagnosis(severity);
 }
 
-// --------
 function logout() {
   localStorage.clear();
   window.location.href = "login.html";
 }
 
-// Sahifa ochilganda yukla
 loadDiagnosis();
