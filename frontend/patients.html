@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Patients</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/patients.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <div class="sidebar-logo">
+          <a href="dashboard.html"
+            ><mark class="mark1">Care</mark><mark class="mark2">Track</mark></a
+          >
+        </div>
+        <div class="sidebar-bottom">
+          <!-- <div class="sidebar-nav"> -->
+          <a class="menu" href="dashboard.html"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+            >
+              <!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE -->
+              <path
+                fill="rgb(255, 255, 255)"
+                d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h4q.825 0 1.413.588T11 5v14q0 .825-.587 1.413T9 21zm10 0q-.825 0-1.412-.587T13 19v-5q0-.825.588-1.412T15 12h4q.825 0 1.413.588T21 14v5q0 .825-.587 1.413T19 21zm0-11q-.825 0-1.412-.587T13 8V5q0-.825.588-1.412T15 3h4q.825 0 1.413.588T21 5v3q0 .825-.587 1.413T19 10z"
+              /></svg
+            >Dashboard</a
+          >
+          <a class="menu" href="doctors.html"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+            >
+              <!-- Icon from Huge Icons by Hugeicons - undefined -->
+              <g fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.5">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M20 22v-3c0-2.828 0-4.243-.879-5.121C18.243 13 16.828 13 14 13l-2 2l-2-2c-2.828 0-4.243 0-5.121.879C4 14.757 4 16.172 4 19v3m12-9v5.5"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.5 13v4m0 0a2 2 0 0 1 2 2v1m-2-3a2 2 0 0 0-2 2v1m9-13.5v-1a3.5 3.5 0 1 0-7 0v1a3.5 3.5 0 1 0 7 0"
+                />
+                <path d="M16.75 19.25a.75.75 0 1 1-1.5 0a.75.75 0 0 1 1.5 0Z" />
+              </g></svg
+            >Doctors</a
+          >
+          <a class="menu" href="patients.html"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+            >
+              <!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ -->
+              <circle
+                cx="15"
+                cy="6"
+                r="3"
+                fill="rgb(255, 255, 255)"
+                opacity=".4"
+              />
+              <ellipse
+                cx="16"
+                cy="17"
+                fill="rgb(255, 255, 255)"
+                opacity=".4"
+                rx="5"
+                ry="3"
+              />
+              <circle cx="9.001" cy="6" r="4" fill="rgb(255, 255, 255)" />
+              <ellipse
+                cx="9.001"
+                cy="17.001"
+                fill="rgb(255, 255, 255)"
+                rx="7"
+                ry="4"
+              /></svg
+            >Patients</a
+          >
+          <a class="menu" href="diseases.html"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+            >
+              <!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE -->
+              <path
+                fill="rgb(255, 255, 255)"
+                d="M11.25 22q-.3 0-.525-.225t-.225-.525t.225-.525t.525-.225v-1.55q-1.05-.125-1.975-.5t-1.675-1l-1.075 1.1q.225.225.225.525t-.225.525t-.525.225t-.525-.225L4.4 18.55q-.225-.225-.225-.538t.225-.537t.525-.213t.525.213l1.1-1.1q-.625-.775-1-1.675t-.5-1.95H3.5q0 .3-.225.525t-.525.225t-.525-.225T2 12.75v-1.5q0-.3.225-.525t.525-.225t.525.225t.225.525h1.55q.125-1.05.513-1.95t.987-1.675l-1.1-1.1q-.225.2-.525.212T4.4 6.525t-.225-.538t.225-.537L5.45 4.4q.225-.225.538-.225t.537.225t.225.537t-.225.538L7.6 6.55q.775-.625 1.675-1t1.95-.5V3.5q-.3 0-.512-.225T10.5 2.75t.225-.525T11.25 2h1.5q.3 0 .525.225t.225.525t-.225.525t-.525.225v1.55q1.05.125 1.95.5t1.675 1l1.1-1.1q-.225-.225-.225-.525t.225-.525t.538-.225t.537.225l1.05 1.075q.225.225.225.525t-.225.525t-.537.225t-.538-.225L17.45 7.6q.625.775 1 1.687t.5 1.963h1.55q0-.3.225-.525t.525-.225t.525.225t.225.525v1.5q0 .3-.225.525t-.525.225t-.525-.225t-.225-.525h-1.55q-.125 1.05-.5 1.962t-1 1.688l1.075 1.075q.225-.225.538-.225t.537.225t.225.538t-.225.537l-1.05 1.05q-.225.225-.537.225t-.538-.225t-.213-.525t.213-.525l-1.1-1.1q-.775.625-1.675 1.013t-1.95.512V20.5q.3 0 .525.225t.225.525t-.225.525t-.525.225zm-1-6q.425 0 .713-.288T11.25 15t-.288-.712T10.25 14t-.712.288T9.25 15t.288.713t.712.287m3.5 0q.425 0 .713-.288T14.75 15t-.288-.712T13.75 14t-.712.288t-.288.712t.288.713t.712.287M8.5 13q.425 0 .713-.288T9.5 12t-.288-.712T8.5 11t-.712.288T7.5 12t.288.713T8.5 13m3.5 0q.425 0 .713-.288T13 12t-.288-.712T12 11t-.712.288T11 12t.288.713T12 13m3.5 0q.425 0 .713-.288T16.5 12t-.288-.712T15.5 11t-.712.288T14.5 12t.288.713t.712.287m-5.25-3q.425 0 .713-.288T11.25 9t-.288-.712T10.25 8t-.712.288T9.25 9t.288.713t.712.287m3.5 0q.425 0 .713-.288T14.75 9t-.288-.712T13.75 8t-.712.288T12.75 9t.288.713t.712.287"
+              /></svg
+            >Diseases</a
+          >
+          <a class="menu" href="reports.html"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+            >
+              <!-- Icon from Iconoir by Luca Burgio - https://github.com/iconoir-icons/iconoir/blob/main/LICENSE -->
+              <g fill="rgb(255, 255, 255)">
+                <rect width="5" height="18" x="16" y="3" rx="2" />
+                <rect width="5" height="12" x="9.5" y="9" rx="2" />
+                <rect width="5" height="5" x="3" y="16" rx="2" />
+              </g></svg
+            >Reports</a
+          >
+          <!-- </div> -->
+          <a class="menu" href="#" class="logout" onclick="logout()"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+            >
+              <!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE -->
+              <path
+                fill="#e74c3c"
+                d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h7v2H5v14h7v2zm11-4l-1.375-1.45l2.55-2.55H9v-2h8.175l-2.55-2.55L16 7l5 5z"
+              /></svg
+            >Logout</a
+          >
+        </div>
+      </div>
+      <div class="main">
+        <div class="main">
+          <h1>Patients</h1>
+
+          <!-- SEARCH + ADD -->
+          <div class="top-bar">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search by name..."
+              oninput="searchPatients()"
+            />
+            <button id="openAddModal">+ Add Patient</button>
+          </div>
+
+          <p id="formMessage"></p>
+
+          <!-- TABLE -->
+          <table id="patientsTable">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Contact</th>
+                <th>Doctor</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="patientsBody"></tbody>
+          </table>
+
+          <!-- MODAL -->
+          <div
+            id="modal"
+            style="
+              display: none;
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: rgba(0, 0, 0, 0.5);
+              justify-content: center;
+              align-items: center;
+            "
+          >
+            <div
+              style="
+                background: white;
+                padding: 30px;
+                border-radius: 10px;
+                width: 400px;
+              "
+            >
+              <h3 id="modalTitle">Add Patient</h3>
+              <input type="hidden" id="editId" />
+
+              <input type="text" id="name" placeholder="Full name" /><br />
+
+              <input type="number" id="age" placeholder="Age" /><br />
+
+              <select id="gender">
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option></select
+              ><br />
+
+              <input type="text" id="contact" value="+998" /><br />
+
+              <select id="doctor_id">
+                <option value="">Select Doctor</option></select
+              ><br />
+
+              <button id="saveBtn">Save</button>
+              <button id="closeModal">Cancel</button>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <script src="js/patients.js"></script>
+      </div>
+    </div>
+  </body>
+</html>
