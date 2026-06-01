@@ -5,15 +5,10 @@
 }
 
 body.login-body {
-  display: flex;
   font-family: Arial, sans-serif;
   min-height: 100vh;
-  display: flex;
   position: relative;
   overflow: hidden;
-}
-.left {
-  width: 50%;
 }
 
 body.login-body::after {
@@ -21,8 +16,8 @@ body.login-body::after {
   position: absolute;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
+  width: 50%;
+  height: 100vh;
   background: url("../images/login.png") center/cover no-repeat;
   filter: brightness(0.95);
   background-size: cover;
@@ -41,10 +36,17 @@ body.login-body::before {
 
 /* LOGIN BOX */
 .login-container {
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 50%;
+  height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 2;
+  padding: 40px;
 }
 
 /* TITLE */
