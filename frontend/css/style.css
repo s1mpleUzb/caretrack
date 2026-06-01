@@ -7,8 +7,9 @@
 body {
   font-family: "Segoe UI", Arial, sans-serif;
   background: url(../images/image.png);
-  background-size: contain; 
+  background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* ===== LAYOUT ===== */
