@@ -11,10 +11,10 @@ const reportsRouter = require("./routes/reports");
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "frontend")));
+app.use(express.static(path.join(__dirname, "../frontend")));
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "login.html"));
+app.get("/login", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/login.html"));
 });
 app.use("/api/doctors", doctorsRouter);
 app.use("/api/patients", patientsRouter);
