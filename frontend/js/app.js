@@ -1,7 +1,10 @@
+const API_BASE = window.location.origin;
+
 if (!localStorage.getItem("role")) {
   window.location.href = "login.html";
 }
-fetch("http://localhost:3000/api/reports")
+
+fetch(`${API_BASE}/api/reports`)
   .then((res) => res.json())
   .then((data) => {
     if (data.success) {
