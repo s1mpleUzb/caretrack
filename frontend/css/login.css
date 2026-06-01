@@ -5,11 +5,15 @@
 }
 
 body.login-body {
+  display: flex;
   font-family: Arial, sans-serif;
   min-height: 100vh;
   display: flex;
   position: relative;
   overflow: hidden;
+}
+.left {
+  width: 50%;
 }
 
 body.login-body::after {
@@ -37,16 +41,10 @@ body.login-body::before {
 
 /* LOGIN BOX */
 .login-container {
-  position: relative;
-  margin-left: auto;
   width: 50%;
-  height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 2;
-  padding: 40px;
 }
 
 /* TITLE */
