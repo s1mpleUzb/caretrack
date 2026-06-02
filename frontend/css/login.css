@@ -11,6 +11,7 @@ body.login-body {
   overflow: hidden;
 }
 
+/* IMAGE SIDE (LEFT) */
 body.login-body::after {
   content: "";
   position: absolute;
@@ -20,24 +21,26 @@ body.login-body::after {
   height: 100vh;
   background: url("../images/login.png") center/cover no-repeat;
   filter: brightness(0.95);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  box-shadow: inset 0 0 120px rgba(255, 255, 255, 0.08);
+  z-index: 0;
 }
+
+/* GREEN SIDE (RIGHT) */
 body.login-body::before {
   content: "";
   position: absolute;
-  left: 0;
+  right: 0;
   top: 0;
   width: 50%;
-  height: 100%;
+  height: 100vh;
   background: linear-gradient(135deg, #1f8f5a, #146c43);
+  z-index: 0;
 }
 
-/* LOGIN BOX */
+/* LOGIN CONTAINER ON GREEN SIDE */
 .login-container {
   position: absolute;
-  left: 0;
+  right: 0;
   top: 0;
   width: 50%;
   height: 100vh;
@@ -53,17 +56,17 @@ body.login-body::before {
 .login-container h2 {
   color: #ffffff;
   margin-bottom: 20px;
-  font-size: 24px;
+  font-size: 28px;
   letter-spacing: 1px;
 }
 
 /* FORM */
 #loginForm {
   width: 100%;
-  max-width: 320px;
+  max-width: 350px;
   background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(10px);
-  padding: 25px;
+  padding: 30px;
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
@@ -72,24 +75,25 @@ body.login-body::before {
 #loginForm input,
 #loginForm select {
   width: 100%;
-  padding: 10px 12px;
-  margin-bottom: 12px;
+  padding: 12px;
+  margin-bottom: 14px;
   border: none;
   border-radius: 8px;
   outline: none;
+  font-size: 14px;
 }
 
 /* BUTTON */
 #loginForm button {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: none;
   border-radius: 8px;
   background: #0b5d3b;
   color: white;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 #loginForm button:hover {
@@ -101,11 +105,6 @@ body.login-body::before {
   margin-top: 10px;
   color: white;
   font-size: 13px;
-}
-
-/* SMALL DECORATION (GREEN GLOW) */
-body.login-body::after {
-  box-shadow: inset 0 0 120px rgba(255, 255, 255, 0.08);
 }
 
 /* RESPONSIVE */
@@ -120,5 +119,7 @@ body.login-body::after {
 
   .login-container {
     width: 100%;
+    right: 0;
+    left: 0;
   }
 }
