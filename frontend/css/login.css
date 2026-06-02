@@ -9,6 +9,7 @@ body.login-body {
   min-height: 100vh;
   position: relative;
   overflow: hidden;
+  background: #1f8f5a;
 }
 body.login-body::before {
   left: 0;
@@ -22,9 +23,6 @@ body.login-body::after {
   width: 50%;
   background: url("../images/login.png") center/cover no-repeat;
 }
-/* IMAGE SIDE (LEFT) */
-
-/* LOGIN CONTAINER ON GREEN SIDE */
 .login-container {
   position: absolute;
   left: 0;
@@ -39,16 +37,12 @@ body.login-body::after {
   z-index: 2;
   padding: 40px;
 }
-
-/* TITLE */
 .login-container h2 {
   color: #ffffff;
   margin-bottom: 20px;
   font-size: 28px;
   letter-spacing: 1px;
 }
-
-/* FORM */
 #loginForm {
   width: 100%;
   max-width: 350px;
@@ -58,8 +52,6 @@ body.login-body::after {
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
-
-/* INPUTS */
 #loginForm input,
 #loginForm select {
   width: 100%;
@@ -70,8 +62,6 @@ body.login-body::after {
   outline: none;
   font-size: 14px;
 }
-
-/* BUTTON */
 #loginForm button {
   width: 100%;
   padding: 12px;
@@ -88,14 +78,12 @@ body.login-body::after {
   background: #094a2f;
 }
 
-/* MESSAGE */
 #message {
   margin-top: 10px;
   color: white;
   font-size: 13px;
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
   body.login-body::before {
     display: none;
