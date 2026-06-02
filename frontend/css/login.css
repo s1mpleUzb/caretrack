@@ -11,10 +11,12 @@ body.login-body {
   overflow: hidden;
   background: #1f8f5a;
 }
-body.login-body::before {
+/* body.login-body::before {
   left: 0;
   width: 50%;
   background: linear-gradient(135deg, #1f8f5a, #146c43);
+  background-size: cover;
+  background-position: center;
 }
 
 body.login-body::after {
@@ -22,7 +24,9 @@ body.login-body::after {
   left: auto;
   width: 50%;
   background: url("../images/login.png") center/cover no-repeat;
-}
+  background-size: cover;
+  background-position: center;
+} */
 .login-container {
   position: absolute;
   left: 0;
