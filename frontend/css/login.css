@@ -10,37 +10,25 @@ body.login-body {
   position: relative;
   overflow: hidden;
 }
-
-/* IMAGE SIDE (LEFT) */
-body.login-body::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 50%;
-  height: 100vh;
-  background: url("../images/login.png") center/cover no-repeat;
-  filter: brightness(0.95);
-  box-shadow: inset 0 0 120px rgba(255, 255, 255, 0.08);
-  z-index: 0;
-}
-
-/* GREEN SIDE (RIGHT) */
 body.login-body::before {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 0;
+  left: 0;
   width: 50%;
-  height: 100vh;
   background: linear-gradient(135deg, #1f8f5a, #146c43);
-  z-index: 0;
 }
+
+body.login-body::after {
+  right: 0;
+  left: auto;
+  width: 50%;
+  background: url("../images/login.png") center/cover no-repeat;
+}
+/* IMAGE SIDE (LEFT) */
 
 /* LOGIN CONTAINER ON GREEN SIDE */
 .login-container {
   position: absolute;
-  right: 0;
+  left: 0;
+  right: auto;
   top: 0;
   width: 50%;
   height: 100vh;
