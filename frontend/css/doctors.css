@@ -1,71 +1,135 @@
+/* ===========================
+   CARETRACK — DOCTORS PAGE
+   =========================== */
+
 .form {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 24px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
 }
+
+.form > div,
+.form-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  box-shadow: var(--shadow-md);
+  flex: 1;
+  min-width: 280px;
+}
+
 .main input,
 .main select {
   display: block;
-  width: 300px;
-  padding: 15px;
+  width: 280px;
+  padding: 10px 14px;
   margin: 8px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
+  border: 1px solid var(--color-input-border);
+  border-radius: var(--radius-md);
+  font-size: 13.5px;
+  font-family: var(--font-body, "DM Sans", sans-serif);
+  background: var(--color-input-bg);
+  color: var(--color-text);
+  outline: none;
+  box-shadow: var(--shadow-sm);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
+
+.main input:focus,
+.main select:focus {
+  border-color: var(--color-accent, #2563eb);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.main input::placeholder {
+  color: var(--color-text-light, #a0aec0);
+}
+
 .main button {
-  padding: 10px 24px;
-  margin: 10px 0;
-  background: #2c3e50;
+  padding: 10px 20px;
+  margin: 10px 6px 10px 0;
+  background: var(--color-accent, #2563eb);
   color: white;
   border: none;
-  border-radius: 5px;
-  font-size: 14px;
+  border-radius: var(--radius-md, 10px);
+  font-size: 13.5px;
+  font-family: var(--font-body, "DM Sans", sans-serif);
+  font-weight: 600;
   cursor: pointer;
-}
-.top-bar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
 }
 
 .main button:hover {
-  background: #34495e;
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+
+.top-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 #formMessage {
-  font-size: 14px;
-  margin: 5px 0 20px;
+  font-size: 13px;
+  margin: 5px 0 16px;
+  font-weight: 500;
 }
 
+/* Doctors Table */
 #doctorsTable {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
-  background: rgba(255, 255, 255, 0.579);
-  border-radius: 8px;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg, 16px);
   overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: background 0.3s ease;
 }
 
 #doctorsTable th {
-  background: #2c3e50;
-  color: white;
-  padding: 12px 16px;
-  font-size: 20px;
-  text-align: center;
+  background: var(--bg-table-header, #0b1628);
+  color: #8fa0be;
+  padding: 13px 18px;
+  text-align: left;
+  font-size: 11px;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 #doctorsTable td {
-  padding: 10px 16px;
-  border-bottom: 1px solid #eee;
-  font-size: 18px;
+  padding: 13px 18px;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 13.5px;
+  color: var(--color-text);
+  transition: background 0.15s ease;
+  vertical-align: middle;
 }
 
 #doctorsTable tr:last-child td {
   border-bottom: none;
 }
-
 #doctorsTable tr:hover td {
-  background: #f5f5f5;
+  background: var(--color-row-hover);
+}
+
+@media (max-width: 768px) {
+  .main input,
+  .main select {
+    width: 100%;
+  }
+  .form {
+    flex-direction: column;
+  }
 }
