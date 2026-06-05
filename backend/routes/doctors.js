@@ -24,7 +24,6 @@ router.get("/", (req, res) => {
   res.json({ success: true, doctors });
 });
 
-// GET doctor by ID
 router.get("/:id", (req, res) => {
   const doctor = db
     .prepare("SELECT * FROM doctors WHERE id = ?")
